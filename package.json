@@ -135,5 +135,9 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "antd": "^5.12.2",
+    "gh-pages": "^6.1.0"
   }
 }

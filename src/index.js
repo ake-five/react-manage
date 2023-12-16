@@ -1,5 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import  ReactDOM from 'react-dom/client';
 import './index.module.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -22,7 +23,7 @@ export async function mount(props) {
 export async function unmount(props) {
   const rootElement = props.container ? props.container.querySelector('#root') : document.getElementById('root');
   if (rootElement) {
-    ReactDOM.unmountComponentAtNode(rootElement);
+    // createRoot(rootElement).unmount();
   }
 }
 

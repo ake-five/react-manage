@@ -1,17 +1,15 @@
 import React from 'react';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import './App.css'
 const { Header, Content, Footer } = Layout;
-const items = new Array(15).fill(null).map((_, index) => ({
-  key: index + 1,
-  label: `nav ${index + 1}`,
-}));
+const items = []
 const App = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
   return (
-    <Layout>
-      <Header
+    <Layout style={{height:'100%'}}>
+     {!window.__POWERED_BY_QIANKUN__&& <Header
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -28,7 +26,7 @@ const App = () => {
             minWidth: 0,
           }}
         />
-      </Header>
+      </Header>}
       <Content
         style={{
           padding: '0 48px',

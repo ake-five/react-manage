@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-manage/static/css/main.6471d273.css",
-    "main.js": "/react-manage/react-manage/static/js/main.52f9040b.js",
+    "main.css": "/react-manage/static/css/main.d39ed03e.css",
+    "main.js": "/react-manage/react-manage/static/js/main.d6a29452.js",
     "react-manage/static/js/787.61228caf.chunk.js": "/react-manage/react-manage/static/js/787.61228caf.chunk.js",
     "index.html": "/react-manage/index.html",
-    "main.6471d273.css.map": "/react-manage/static/css/main.6471d273.css.map",
-    "main.52f9040b.js.map": "/react-manage/react-manage/static/js/main.52f9040b.js.map",
+    "main.d39ed03e.css.map": "/react-manage/static/css/main.d39ed03e.css.map",
+    "main.d6a29452.js.map": "/react-manage/react-manage/static/js/main.d6a29452.js.map",
     "787.61228caf.chunk.js.map": "/react-manage/react-manage/static/js/787.61228caf.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6471d273.css",
-    "react-manage/static/js/main.52f9040b.js"
+    "static/css/main.d39ed03e.css",
+    "react-manage/static/js/main.d6a29452.js"
   ]
 }

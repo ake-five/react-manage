@@ -48,9 +48,9 @@ export default function Index() {
                         className="site-layout-background"
                         style={{ height: "100%" }}
                     >
-                        <Spin delay={500}>
+                        {/* <Spin delay={500}> */}
                             <Outlet />
-                        </Spin>
+                        {/* </Spin> */}
                     </div>
                 </Content>
 

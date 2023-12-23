@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { PieChartOutlined, DesktopOutlined, ContainerOutlined } from '@ant-design/icons';
 import { Outlet,useNavigate } from "react-router-dom";
 import { Layout, Menu } from "antd";
-
+ import reuteMeuns from '../router/routeMenu'
 const { Content, Sider } = Layout;
 function getItem(label, key, icon, children, type) {
     return {
@@ -13,11 +13,9 @@ function getItem(label, key, icon, children, type) {
       type,
     };
   }
-const items = [
-    getItem('首页', 'layout/home', <PieChartOutlined />),
-    getItem('Option 2', '2', <DesktopOutlined />),
-    getItem('Option 3', '3', <ContainerOutlined />),
-  ];
+const items = reuteMeuns.map(item=>{
+    return  getItem(item.meta.title, item.path, <PieChartOutlined />)
+}) 
 export default function Index() {
     // const { REACT_APP_PUBLIC_PATH } = (process?.env as any)
     // console.log(process.env);
@@ -48,8 +46,8 @@ export default function Index() {
 
                 {<Menu
                     theme="dark"
-                    defaultSelectedKeys={['layout/coms']}
-                    defaultOpenKeys={['layout/coms']}
+                    defaultSelectedKeys={items[0].key}
+                    defaultOpenKeys={items[0].key}
                     mode="inline"
                     items={items}
                     onClick={onClick}

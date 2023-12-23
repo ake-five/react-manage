@@ -1,15 +1,19 @@
 import React from 'react';
-import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import { Layout, Menu, theme } from 'antd';
+import { BrowserRouter } from "react-router-dom";
+import Routes from "../src/router/index";
+
 import './App.css'
-const { Header, Content, Footer } = Layout;
+
+const { Header } = Layout;
 const items = []
 const App = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
   return (
-    <Layout style={{height:'100%'}}>
-     {!window.__POWERED_BY_QIANKUN__&& <Header
+    <Layout style={{ height: '100%' }}>
+      {!window.__POWERED_BY_QIANKUN__ && <Header
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -27,38 +31,12 @@ const App = () => {
           }}
         />
       </Header>}
-      <Content
-        style={{
-          padding: '0 48px',
-        }}
-      >
-        <Breadcrumb
-          style={{
-            margin: '16px 0',
-          }}
-        >
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>List</Breadcrumb.Item>
-          <Breadcrumb.Item>App</Breadcrumb.Item>
-        </Breadcrumb>
-        <div
-          style={{
-            background: colorBgContainer,
-            minHeight: 280,
-            padding: 24,
-            borderRadius: borderRadiusLG,
-          }}
-        >
-          Content
+
+      <BrowserRouter basename='react-manage'>
+        <div style={{ height: "100%" }}>
+          <Routes />
         </div>
-      </Content>
-      <Footer
-        style={{
-          textAlign: 'center',
-        }}
-      >
-        Ant Design ©2023 Created by Ant UED
-      </Footer>
+      </BrowserRouter>
     </Layout>
   );
 };

@@ -32,7 +32,7 @@ const App = () => {
         />
       </Header>}
 
-      <BrowserRouter basename='react-manage'>
+      <BrowserRouter basename={window.__POWERED_BY_QIANKUN__ ? '/react-manage1' : '/react-manage'}>
         <div style={{ height: "100%" }}>
           <Routes />
         </div>

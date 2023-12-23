@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Outlet, } from "react-router-dom";
-import { Layout, Menu, Spin } from "antd";
+import { Layout, Menu } from "antd";
 const { Content, Sider } = Layout;
 
 

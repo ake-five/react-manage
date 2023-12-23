@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Outlet,  } from "react-router-dom";
-import { Layout, Menu,  Spin } from "antd";
-const { Content,  Sider } = Layout;
+import { Outlet, } from "react-router-dom";
+import { Layout, Menu, Spin } from "antd";
+const { Content, Sider } = Layout;
 
 
 export default function Index() {
@@ -24,21 +24,15 @@ export default function Index() {
     }, []);
 
     return (
-        <Layout style={{ minHeight: "100vh" }}>
+        <Layout style={{ height: '100%' }}>
             <Sider
                 collapsible
                 collapsed={collapsed}
                 onCollapse={(value) => setCollapsed(value)}
             >
-                {collapsed ? (
-                    <div className="layout-container">React.vite</div>
-                ) : (
-                    <div className="layout-container">
-                        欢迎登录 React.vite 练习项目
-                    </div>
-                )}
 
-                { <Menu
+
+                {<Menu
                     theme="dark"
                     defaultSelectedKeys={['layout/coms']}
                     defaultOpenKeys={['layout/coms']}
@@ -47,9 +41,9 @@ export default function Index() {
                     onClick={onClick}
                 />}
             </Sider>
-            <Layout className="site-layout">
+            <Layout className="site-layout" style={{ height: "100%" }}>
                 {/* <Header /> */}
-                <Content style={{ margin: "16px" }}>
+                <Content style={{ margin: "16px",height: "100%" }}>
                     <div
                         className="site-layout-background"
                         style={{ height: "100%" }}
@@ -59,7 +53,7 @@ export default function Index() {
                         </Spin>
                     </div>
                 </Content>
-           
+
             </Layout>
         </Layout>
     );

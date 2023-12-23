@@ -1,53 +1,54 @@
 import React from "react";
-import { useRoutes, Navigate,useNavigate } from "react-router-dom";
+import { useRoutes, Navigate, useNavigate } from "react-router-dom";
 import routes from "./routes";
 import { Spin } from "antd";
 import _ from "lodash";
+import { calc } from "antd/es/theme/internal";
 
 export default function Routes() {
-    const element = useRoutes(renderRoutes(routes));
-    return element;
+  const element = useRoutes(renderRoutes(routes));
+  return element;
 }
 
 function renderRoutes(routes) {
-    // const navigate = useNavigate();
-    return _.map(routes, (item) => {
-      
+  // const navigate = useNavigate();
+  return _.map(routes, (item) => {
 
-        let res = { ...item };
-        if (!item?.path)
-            return {
-                path: "/404",
-                meta: "404",
-            };
 
-        // component
-        if (item?.component) {
-            const Component = React.lazy(item.component);
-            res.element = (
-                <React.Suspense fallback={<Spin size="large" />}>
-                    <BeforeEach route={item}>
-                        <Component />
-                    </BeforeEach>
-                </React.Suspense>
-            );
-        }
+    let res = { ...item };
+    if (!item?.path)
+      return {
+        path: "/404",
+        meta: "404",
+      };
 
-        // children
-        if (item?.children) {
-            (res).children = renderRoutes(item.children);
-        }
+    // component
+    if (item?.component) {
+      const Component = React.lazy(item.component);
+      res.element = (
+        <React.Suspense fallback={<Spin size="large" />}>
+          <BeforeEach route={item}>
+            <Component />
+          </BeforeEach>
+        </React.Suspense>
+      );
+    }
 
-        // 重定向
-        if (item?.redirect) {
-            res.element = <Navigate to={item.redirect} replace />;
-        }
+    // children
+    if (item?.children) {
+      (res).children = renderRoutes(item.children);
+    }
 
-        return res;
-    });
+    // 重定向
+    if (item?.redirect) {
+      res.element = <Navigate to={item.redirect} replace />;
+    }
+
+    return res;
+  });
 }
 function BeforeEach(props) {
 
 
-  return <div style={{ height: "100%" ,overflow:'auto'}}>{props.children}</div>;
+  return <div style={{ height: '100%', overflow: 'auto' }}>{props.children}</div>;
 }

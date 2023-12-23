@@ -1,20 +1,34 @@
 import React, { useEffect, useState } from "react";
-import { Outlet, } from "react-router-dom";
-import { Layout, Menu, Spin } from "antd";
+import { PieChartOutlined, DesktopOutlined, ContainerOutlined } from '@ant-design/icons';
+import { Outlet,useNavigate } from "react-router-dom";
+import { Layout, Menu } from "antd";
+
 const { Content, Sider } = Layout;
-
-
+function getItem(label, key, icon, children, type) {
+    return {
+      key,
+      icon,
+      children,
+      label,
+      type,
+    };
+  }
+const items = [
+    getItem('首页', 'layout/home', <PieChartOutlined />),
+    getItem('Option 2', '2', <DesktopOutlined />),
+    getItem('Option 3', '3', <ContainerOutlined />),
+  ];
 export default function Index() {
     // const { REACT_APP_PUBLIC_PATH } = (process?.env as any)
     // console.log(process.env);
 
     // const BADE_NAME = REACT_APP_PUBLIC_PATH ? `/${REACT_APP_PUBLIC_PATH}` : ``
 
-    // const naviagtor = useNavigate();
+    const naviagtor = useNavigate();
     const [collapsed, setCollapsed] = useState(false);
     const onClick = (e) => {
         if (e.key) {
-            // naviagtor(`/${e.key}`);
+            naviagtor(`/${e.key}`);
         }
     };
     useEffect(() => {
@@ -37,9 +51,11 @@ export default function Index() {
                     defaultSelectedKeys={['layout/coms']}
                     defaultOpenKeys={['layout/coms']}
                     mode="inline"
-                    items={[]}
+                    items={items}
                     onClick={onClick}
                 />}
+            
+ 
             </Sider>
             <Layout className="site-layout" style={{ height: "100%" }}>
                 {/* <Header /> */}

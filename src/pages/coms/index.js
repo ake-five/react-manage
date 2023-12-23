@@ -11,19 +11,21 @@ const About = () => {
 
     useEffect(() => {
         // 模拟从后端获取动态表头和数据的异步操作
-        // 实际应用中，你需要替换下面的模拟数据为从后端获取的数据
         const fetchDataFromBackend = async () => {
             // 模拟从后端获取的动态表头数据
             const dynamicColumns = [
                 { title: '序号', dataIndex: 'id', key: 'id', width: 500 },
                 { title: '名字', dataIndex: 'name', key: 'name' },
                 { title: '年纪', dataIndex: 'age', key: 'age' },
-                // Add more dynamic columns as needed
             ];
-
-            // 生成100条数据的数组
+            // 从后端数据中提取表头和数据
+            const backendColumns = dynamicColumns.map(column => ({
+                title: column.title,
+                dataIndex: column.dataIndex,
+                key: column.key,
+                width: column.width
+            }));
             const data = [];
-
             for (let i = 0; i < 100; i++) {
                 data.push({
                     key: `${i + 1}`,
@@ -33,7 +35,7 @@ const About = () => {
                 });
             }
 
-            setColumns(dynamicColumns);
+            setColumns(backendColumns);
             setTableData(data);
         };
 
@@ -58,7 +60,7 @@ const About = () => {
                 style={{ width: '100%' }}
                 columns={columns}
                 dataSource={paginatedData}
-                pagination={false} // 禁用表格自带的分页器
+                pagination={false}
                 scroll={{ y: 600 }}
                 summary={() => (
                     <Table.Summary>
